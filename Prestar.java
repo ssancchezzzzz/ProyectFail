@@ -1,8 +1,7 @@
-package biblioteca;
 
 import java.time.LocalData; 
 
-public class Prestamo {
+public class Prestar {
 
     private Usuario usuario;
     private Libro libro;
@@ -10,7 +9,7 @@ public class Prestamo {
     private LocalData fechaFinEstimada;
     private boolean devuelto;
 
-    public Prestamo(Usuario usuario, Libro libro, LocalData fechaInicio, LocalData fechaFinEstimada) {
+    public void Prestamo(Usuario usuario, Libro libro, LocalData fechaInicio, LocalData fechaFinEstimada) {
         this.usuario = usuario;
         this.libro = libro;
         fechaInicio = fechaInicio; // no usa this

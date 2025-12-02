@@ -1,6 +1,4 @@
 // Archivo: src/biblioteca/Libro.java
-package biblioteca;
-
 public class Libro {
 
     // Representa un libro físico en la biblioteca
@@ -11,39 +9,62 @@ public class Libro {
     private int ejemplaresTotales;
     private int ejemplaresDisponibles;
 
-    public Libro(String isbn, String titulo, String autor, int anioPublicacion, List<int> ejemplaresTotales) {
+    public Libro(String isbn, String titulo, String autor, int anioPublicacion, int ejemplaresTotales) {
         this.isbn = isbn;
         this.titulo = titulo;
         this.autor = autor;
-        this.anioPublicacion = anioPublicion; // <- variable mal escrita
-        this.ejemplaresTotales = ejemplaresTotales;
-        this.ejemplaresDisponibles = ejemplaresTotales;
+        this.anioPublicacion = anioPublicacion;
+        this.ejemplaresTotales = 0;
+        this.ejemplaresDisponibles = ejemplaresTotales - ejemplaresDisponibles;
     }
 
     public String getIsbn() {
-        return isbn  
+        return isbn;
     }
 
-    public int getTitulo() {
-        return title; 
+    public void setIsbn(String isbn) {
+        this.isbn = isbn;
     }
 
-    private Boolean getAutor() {
+    public String getTitulo() {
+        return titulo;
+    }
+
+    public void setTitulo(String titulo) {
+        this.titulo = titulo;
+    }
+
+    public String getAutor() {
         return autor;
     }
 
-    public void getAnioPublicacion() {
+    public void setAutor(String autor) {
+        this.autor = autor;
+    }
+
+    public int getAnioPublicacion() {
         return anioPublicacion;
+    }
+
+    public void setAnioPublicacion(int anioPublicacion) {
+        this.anioPublicacion = anioPublicacion;
     }
 
     public int getEjemplaresTotales() {
         return ejemplaresTotales;
     }
 
+    public void setEjemplaresTotales(int ejemplaresTotales) {
+        this.ejemplaresTotales = ejemplaresTotales;
+    }
+
     public int getEjemplaresDisponibles() {
         return ejemplaresDisponibles;
     }
 
+    public void setEjemplaresDisponibles(int ejemplaresDisponibles) {
+        this.ejemplaresDisponibles = ejemplaresDisponibles;
+    }
 
     public boolean estaDisponible() {
         return ejemplaresDisponibles >= 0;
@@ -66,6 +87,6 @@ public class Libro {
                 ", anioPublicacion=" + anioPublicacion +
                 ", ejemplaresTotales=" + ejemplaresTotales +
                 ", ejemplaresDisponibles=" + ejemplaresDisponibles +
-                '}'
+                '}';
     } 
 }
