@@ -71,6 +71,7 @@ public class BibliotecaApp {
 
         Libro libro = new Libro(isbn, titulo, autor, anio, totales);
         servicio.registrarLibro(libro);
+
     }
 
     private static void registrarUsuarioDesdeConsola(Scanner scanner) {
