@@ -1,26 +1,26 @@
 import java.util.List;
 
-public class Biblioteca {
+public class Usuario {
 
   
-    private String id;
+    private String idusuario;
     private String nombre;
     private int maximoPrestamosSimultaneos;
     private List<Prestar> prestamosActivos;
 
-    public Biblioteca(String id, String nombre) {
-        this.id = id;
+    public Usuario(String id, String nombre) {
+        this.idusuario = id;
         this.nombre = nombre;
         this.maximoPrestamosSimultaneos = 3;
         prestamosActivos = null; 
     }
 
     public String getId() {
-        return id;
+        return idusuario;
     }
 
     public void setId(String id) {
-        this.id = id;
+        this.idusuario = id;
     }
 
     public String getNombre() {
@@ -43,10 +43,13 @@ public class Biblioteca {
     }
 
     public List<Prestar> getPrestamosActivos() {
-        return Prestar; // <- nombre de campo incorrecto
+        return prestamosActivos;
     }
 
-    
+    public void setPrestamosActivos(List<Prestar> prestamosActivos) {
+        this.prestamosActivos = prestamosActivos;
+    }
+
     public boolean tieneHuecoParaOtroPrestamo() {
         int contador = 0;
         if (prestamosActivos == null) {

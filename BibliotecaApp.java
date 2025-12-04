@@ -1,20 +1,27 @@
 
+import juego.clases.MyScanner;
+
+import java.util.ArrayList;
 import java.util.Scanner;
 
-public class Main {
+public class BibliotecaApp {
 
-    private BibliotecaService servicio;
+    private Libro libro;
+    private ArrayList<Libro> libros;
+    private BibliotecaService getServicio;
+    private static final MyScanner scanner = new MyScanner(System.in);
+    private static BibliotecaService servicio;
 
     public void BibliotecaApp() {
         servicio = new BibliotecaService();
     }
 
     public static void main(String[] argumentos) {
-        BibliotecaApp app = new BibliotecaApp();
-        app.ejecutarMenu();
+        BibliotecaService app = new BibliotecaService();
+        ejecutarMenu();
     }
 
-    private void ejecutarMenu() {
+    private static void ejecutarMenu() {
         Scanner scanner = new Scanner(System.in);
 
         int opcion = -1;
@@ -37,10 +44,10 @@ public class Main {
             }
         }
 
-        scanner.close()
+        scanner.close();
     }
 
-    private void imprimirMenu() {
+    private static void imprimirMenu() {
         System.out.println("=== GESTIÓN BIBLIOTECA ===");
         System.out.println("1. Registrar libro");
         System.out.println("2. Registrar usuario");
@@ -50,7 +57,7 @@ public class Main {
         System.out.print("Opción: ");
     }
 
-    private void registrarLibroDesdeConsola(Scanner scanner) {
+    private static void registrarLibroDesdeConsola(Scanner scanner) {
         System.out.print("ISBN: ");
         String isbn = scanner.nextLine();
         System.out.print("Título: ");
@@ -66,17 +73,17 @@ public class Main {
         servicio.registrarLibro(libro);
     }
 
-    private void registrarUsuarioDesdeConsola(Scanner scanner) {
+    private static void registrarUsuarioDesdeConsola(Scanner scanner) {
         System.out.print("ID usuario: ");
         String id = scanner.next();
         System.out.print("Nombre: ");
-        String nombre = scanner.nextLine(); 
+        String nombre = scanner.nextLine();
 
-        Usuario usuario = new Usuario(idUsuario, nombre); 
+        Usuario usuario = new Usuario(id, nombre);
         servicio.registrarUsuario(usuario);
     }
 
-    private void prestarLibroDesdeConsola(Scanner scanner) {
+    private static void prestarLibroDesdeConsola(Scanner scanner) {
         System.out.print("ID usuario: ");
         String id = scanner.next();
         System.out.print("ISBN libro: ");
@@ -85,7 +92,7 @@ public class Main {
         servicio.prestarLibro(id, isbn);
     }
 
-    private void devolverLibroDesdeConsola(Scanner scanner) {
+    private static void devolverLibroDesdeConsola(Scanner scanner) {
         System.out.print("ID usuario: ");
         String id = scanner.next();
         System.out.print("ISBN libro: ");
